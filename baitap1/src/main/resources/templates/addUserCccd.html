@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Add Cccd</title>
 </head>
 <body>
-$END$
+<h1>Thông tin CCCD:</h1>
+<form th:action="@{/addUserCccd}" th:object="${userCccd}" method="POST">
+  Số CCCD: <br/>
+  <input type="number" th:field="*{number}" /><br/>
+
+  Họ và tên: <br/>
+  <input type="text" th:field="*{fullName}" /><br/>
+
+  Ngày sinh: <br/>
+  <input type="date" th:field="*{dateOfBirth}" /><br/>
+
+  Giới tính: <br/>
+  <select th:field="*{sex}">
+    <option th:value="MALE">Nam</option>
+    <option th:value="FEMALE">Nữ</option>
+    <option th:value="OTHER">Khác</option>
+  </select><br/>
+
+  Quốc tịch: <br/>
+  <input type="text" th:field="*{nationality}" /><br/>
+
+  Nơi sinh: <br/>
+  <input type="text" th:field="*{placeOfOrigin}" /><br/>
+
+  Nơi cư trú: <br/>
+  <input type="text" th:field="*{placeOfResidence}" /><br/>
+
+  <input type="submit" value="Create"/>
+</form>
 </body>
 </html>
