@@ -2,10 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Btap2</title>
+    <title>User List</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 250px;
+            display: inline-block;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
 </head>
 <body>
-<h1> Thông tin khách hàng VIP</h1>
-<h2 th:text="${user}"> User VIP: </h2>
+<h1>Danh sách người dùng</h1>
+<div class="card-container">
+    <div th:each="user : ${userList}" class="card">
+        <h2 th:text="${user.firstName} + ' ' + ${user.lastName}">User Name</h2>
+        <p>Birth Date: <span th:text="${user.birthDate}"></span></p>
+        <p>No: <span th:text="${user.no}"></span></p>
+        <p>Sex: <span th:text="${user.sex}"></span></p>
+        <p>Phone Number: <span th:text="${user.phone}"></span></p>
+        <p>Address: <span th:text="${user.address}"></span></p>
+    </div>
+</div>
 </body>
 </html>
